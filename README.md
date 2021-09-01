@@ -11,7 +11,7 @@ Demo project about taking data from csv file and transforming into xml form. Thi
 
 2. Open the project.
 3. Add external jars to project such as [CSV libary](https://www.csvreader.com/java_csv_samples.php) and [Freemarker](https://freemarker.apache.org/).
-4. Before starting the project, you need to remark your project file path into ConverController.java source code for xml template config.
+4. Before starting the project, you need to write your project file path into **ConvertController.java** source code for xml template config.
 5. Run the project.
 
 ### HOW TO USE
