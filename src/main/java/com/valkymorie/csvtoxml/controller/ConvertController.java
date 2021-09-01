@@ -21,7 +21,7 @@ public class ConvertController {
     public void converToXml(List<User> userList) throws IOException, ParserConfigurationException, SAXException, TemplateException {
 
         Configuration config = new Configuration(Configuration.VERSION_2_3_31);
-        config.setDirectoryForTemplateLoading(new File("FOLDER/PATH/"));
+        config.setDirectoryForTemplateLoading(new File("YOUR/FOLDER/PATH/"));
         config.setDefaultEncoding("UTF-8");
         config.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         config.setLogTemplateExceptions(false);
