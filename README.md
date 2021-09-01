@@ -17,4 +17,4 @@ Demo project about taking data from csv file and transforming into xml form. Thi
 ### HOW TO USE
 While the project running, csv libary is taking data from input.csv file and converting into new model of User as List. After this process, list of User is mapping into 
 new data-model for transforming into new xml file. Finally freemaker libary takes data model and xml template to converts into output.xml file. While this project
-running, xml files can be viewed in terminal.
+running, xml contents can be viewed in terminal.
