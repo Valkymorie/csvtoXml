@@ -1,0 +1,12 @@
+<users>
+    <user>
+        <username>${userList.userName}</username>
+        <firstname>${userList.firstName}</firstname>
+        <lastname>${userList.lastName}</lastname>
+        <email>${userList.email}</email>
+        <roles>
+            <role>${userList.roles[0]}</role>
+            <role>${userList.roles[1]}</role>
+        </roles>
+    </user>
+</users>
