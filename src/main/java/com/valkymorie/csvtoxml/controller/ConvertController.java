@@ -5,10 +5,7 @@ import freemarker.cache.ConditionalTemplateConfigurationFactory;
 import freemarker.cache.FileExtensionMatcher;
 import freemarker.core.TemplateConfiguration;
 import freemarker.core.XMLOutputFormat;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.TemplateExceptionHandler;
+import freemarker.template.*;
 import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
@@ -21,12 +18,19 @@ public class ConvertController {
     public void converToXml(List<User> userList) throws IOException, ParserConfigurationException, SAXException, TemplateException {
 
         Configuration config = new Configuration(Configuration.VERSION_2_3_31);
-        config.setDirectoryForTemplateLoading(new File("YOUR/FOLDER/PATH/"));
+        config.setDirectoryForTemplateLoading(new File("C:\\Users\\emir\\Desktop\\PROJELER\\Spring\\Csvtoxml"));
         config.setDefaultEncoding("UTF-8");
         config.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         config.setLogTemplateExceptions(false);
         config.setWrapUncheckedExceptions(true);
         config.setFallbackOnNullLoopVariable(false);
+
+        //config.setObjectWrapper(Configuration.getDefaultObjectWrapper(Configuration.VERSION_2_3_31));
+        //config.setObjectWrapper(new MyUserObjectWrapper(config.getIncompatibleImprovements()));
+
+        DefaultObjectWrapperBuilder defaultObjectWrapperBuilder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_31);
+        defaultObjectWrapperBuilder.setIterableSupport(true);
+        config.setObjectWrapper(defaultObjectWrapperBuilder.build());
 
         TemplateConfiguration tcUTF8XML = new TemplateConfiguration();
         tcUTF8XML.setEncoding("utf-8");
@@ -34,10 +38,10 @@ public class ConvertController {
 
         config.setTemplateConfigurations(new ConditionalTemplateConfigurationFactory(new FileExtensionMatcher("xml"), tcUTF8XML));
 
-        Map root = new HashMap();
-        root.put("doc", freemarker.ext.dom.NodeModel.parse(new File("template.xml")));
+        Map<String, List<User>> root = new HashMap();
+        //root.put("doc", freemarker.ext.dom.NodeModel.parse(new File("template.ftlx")));
 
-        Template temp = config.getTemplate("template.xml");
+        Template temp = config.getTemplate("template.ftl");
 
         File file = new File("output.xml");
         if (!file.exists())
@@ -46,11 +50,10 @@ public class ConvertController {
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         Writer out = new OutputStreamWriter(System.out);
 
-        for (int i = 0; i < userList.size(); i++) {
-            root.put("userList", userList.get(i));
-            temp.process(root, out);
-            temp.process(root, bufferedWriter);
-        }
+        root.put("userList", userList);
+        temp.process(root,out);
+        temp.process(root,bufferedWriter);
+
         out.close();
         bufferedWriter.close();
     }

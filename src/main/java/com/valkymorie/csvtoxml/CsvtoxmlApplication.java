@@ -23,7 +23,7 @@ public class CsvtoxmlApplication {
         final UserController userController = new UserController();
         final ConvertController convertController= new ConvertController();
 
-        List<User> userList = new ArrayList<User>();
+        List<User> userList = new ArrayList<>();
         userController.readUsers(userList);
         convertController.converToXml(userList);
 

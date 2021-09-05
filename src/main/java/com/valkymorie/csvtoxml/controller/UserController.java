@@ -31,7 +31,7 @@ public class UserController {
                     String email = input.get("email");
                     String role = input.get("role");
 
-                    List<String> stringRole = new ArrayList<String>();
+                    List<String> stringRole = new ArrayList<>();
                     stringRole.add(role);
 
                     for (int i = 0; i < userList.size(); i++) {
@@ -43,7 +43,7 @@ public class UserController {
                         }
                     }
                     if (j == 0) {
-                        User newUser = new User(username, firstname, lastname, email, stringRole);
+                        User newUser = new User(username, firstname, lastname, email,stringRole);
                         userList.add(newUser);
                     }
                     j = 0;

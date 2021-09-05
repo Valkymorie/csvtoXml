@@ -1,24 +1,22 @@
 <users>
     <user>
-        <username>user1</username>
-        <firstname>Firstname1</firstname>
-        <lastname>Lastname1</lastname>
-        <email>email1@magarsus.com</email>
-        <roles>
-            <role>Role1</role>
-            <role>Role2</role>
-        </roles>
+        <username> user1 </username>
+        <firstname> Firstname1 </firstname>
+        <lastname> Lastname1 </lastname>
+        <email> email1@magarsus.com </email>
+            <roles>
+                <role> Role1 </role>
+                <role> Role2 </role>
+            </roles>
     </user>
-</users>
-<users>
     <user>
-        <username>user2</username>
-        <firstname>Firstname2</firstname>
-        <lastname>Lastname2</lastname>
-        <email>email2@magarsus.com</email>
-        <roles>
-            <role>Role3</role>
-            <role>Role4</role>
-        </roles>
+        <username> user2 </username>
+        <firstname> Firstname2 </firstname>
+        <lastname> Lastname2 </lastname>
+        <email> email2@magarsus.com </email>
+            <roles>
+                <role> Role3 </role>
+                <role> Role4 </role>
+            </roles>
     </user>
 </users>
